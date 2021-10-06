@@ -19,7 +19,7 @@ public class HashGraph extends Graph {
     // polyHash ตามที่ implement ไว้ใน HashTable
     public static int polyHash(String s, int p, int x) {
         int hash = 0;
-        for (int i = 0; i <= s.length() - 1; ++i)
+        for (int i = s.length() - 1; i >= 0 ; --i)
             hash = (hash * x + (int) (s.charAt(i))) % p;
         return hash;
     }

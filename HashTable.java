@@ -36,7 +36,7 @@ public class HashTable {
          *      > หากเจอช่องที่ว่างแล้ว ก็ return hashIndex ตัวนั้นเลย (หรือ return เมื่อ string s == arr[hashIndex])
          */
         int hash = polyHash(s, p, x);
-        int hashIndex = hash % capacity;
+        int hashIndex = hash % capacity; // Cardinality Fix
 
         for (int i = 0; i < capacity; ++i) {
             hashIndex = (hashIndex + i) % capacity;
@@ -54,7 +54,7 @@ public class HashTable {
          *  - ตาม pseudocode ในสไลด์ แต่ในที่นี้ เราจะวิ่งจาก 0 ไป |S| - 1    
          */
         int hash = 0;
-        for (int i = 0; i <= s.length() - 1; ++i)
+        for (int i = s.length() - 1; i >= 0 ; --i)
             hash = (hash * x + (int) (s.charAt(i))) % p;
         return hash;
     }
